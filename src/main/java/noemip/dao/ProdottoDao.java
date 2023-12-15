@@ -12,11 +12,11 @@ import java.util.List;
 public class ProdottoDao {
     private final EntityManager em;
 
-    //findByISBN
     public ProdottoDao(EntityManager em) {
         this.em = em;
     }
 
+    //findByISBN
     public Prodotto findByISBN(String isbn){
         return em.find(Prodotto.class, isbn);
     }
