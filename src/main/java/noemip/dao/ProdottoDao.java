@@ -1,12 +1,14 @@
 package noemip.dao;
 
 import noemip.entities.Libro;
+import noemip.entities.Prestito;
 import noemip.entities.Prodotto;
 import noemip.entities.Rivista;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProdottoDao {
@@ -73,4 +75,18 @@ public class ProdottoDao {
         return getProductsByTitle.getResultList();
     }
 
+    public List<Prodotto> getProductsByCard(long numeroTessera){
+        List<Prodotto> prodottiInPrestito = new ArrayList<>();
+
+        List<Prestito> prestiti = em.createQuery(
+                "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera", Prestito.class).setParameter("numeroTessera", numeroTessera).getResultList();
+
+
+        //per ogni prestito nella lista prestiti
+        for(Prestito prestito : prestiti){
+            prodottiInPrestito.add(prestito.getProdotto());
+
+        }
+        return prodottiInPrestito;
+    }
 }

@@ -64,7 +64,7 @@ public class Application {
         //pDAO.save(p4);
 
         List<Prestito> prestitiScaduti = pDAO.getNotReturnedProducts();
-
+        List<Prodotto> prodottiInPrestito = prodDAO.getProductsByCard(3);
 
         System.out.println("----------------------findByYear------------------------");
         prodDAO.findByYear(2009).forEach(System.out::println);
@@ -76,6 +76,12 @@ public class Application {
         for(Prestito prestito : prestitiScaduti){
             System.out.println("- ID prestito: " + prestito.getId() + ", Utente: " + prestito.getUtente().getNome() + " " + prestito.getUtente().getCognome());
         }
+
+        System.out.println("------Prodotti in presito per numero tessera: ");
+        for(Prodotto prodotto : prodottiInPrestito){
+            System.out.println(prodotto);
+        }
+
         em.close();
         emf.close();
 

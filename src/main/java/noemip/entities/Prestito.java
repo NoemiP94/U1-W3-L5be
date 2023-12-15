@@ -43,11 +43,11 @@ public class Prestito {
         this.utente = utente;
     }
 
-    public Prodotto getListaProdotti() {
+    public Prodotto getProdotto() {
         return prodotto;
     }
 
-    public void setListaProdotti(Prodotto prodotto) {
+    public void setProdotto(Prodotto prodotto) {
         this.prodotto = prodotto;
     }
 

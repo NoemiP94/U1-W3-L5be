@@ -44,23 +44,6 @@ public class PrestitoDAO {
         }
     }
 
-    //ricerca degli elementi attualmente in prestito dato un numero di tessera utente
-    /*public List<Prodotto> getProductsByCard(long numeroTessera){
-        List<Prodotto> prodottiInPrestito = new ArrayList<>();
-
-        List<Prestito> prestiti = em.createQuery(
-                "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera", Prestito.class).setParameter("numeroTessera", numeroTessera).getResultList();
-
-
-        //per ogni prestito nella lista prestiti
-        for(Prestito prestito : prestiti){
-            if(prestito.getUtente().getNumeroTessera() == numeroTessera){  //se il numero della tessera inserito è uguale a quelli presenti
-                prodottiInPrestito.addAll(prestito.getListaProdotti());
-            }
-        }
-        return prodottiInPrestito;
-    }*/
-
     //ricerca di tutti i prestiti scaduti e non ancora restituiti
     public List<Prestito> getNotReturnedProducts(){
         LocalDate today = LocalDate.now(); //crea data odierna

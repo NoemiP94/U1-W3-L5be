@@ -39,7 +39,7 @@ public class Rivista extends Prodotto{
                 ", Titolo: " + getTitolo() +
                 ", Anno Pubblicazione: " + getAnnoPubblicazione() +
                 ", Numero pagine: " + getNumeroPagine() +
-                ", Periodicita: " + periodicita +
+                ", Periodicità: " + periodicita +
                 '}';
     }
 }
