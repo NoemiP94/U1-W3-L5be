@@ -13,7 +13,7 @@ public class Libro extends Prodotto{
     public Libro() {
     }
 
-    public Libro(String titolo, LocalDate annoPubblicazione, int numeroPagine, String autore, String genere) {
+    public Libro(String titolo, int annoPubblicazione, int numeroPagine, String autore, String genere) {
         super(titolo, annoPubblicazione, numeroPagine);
         this.autore = autore;
         this.genere = genere;
@@ -44,6 +44,6 @@ public class Libro extends Prodotto{
         return "Libro{" +
                 "autore='" + autore + '\'' +
                 ", genere='" + genere + '\'' +
-                '}';
+                 "titolo" + getTitolo()+ "anno" + getAnnoPubblicazione()+ "pagine:" + getNumeroPagine()+ "isbn" + getCodiceISBN()+'}';
     }
 }

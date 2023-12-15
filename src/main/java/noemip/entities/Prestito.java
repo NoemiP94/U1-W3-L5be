@@ -10,7 +10,7 @@ public class Prestito {
     @GeneratedValue
     private long id;
     @ManyToOne
-    @JoinColumn(name= "utente_id")
+    @JoinColumn(name= "utente_tessera")
     private Utente utente;
     @OneToMany(mappedBy= "prestito")
     private List<Prodotto> listaProdotti;

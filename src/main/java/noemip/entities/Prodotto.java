@@ -6,12 +6,13 @@ import java.util.UUID;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+//@NamedQuery(name= "findByYear", query="SELECT p FROM Prodotto p ")
 public abstract class Prodotto {
 
     @Id
     private String codiceISBN;
     private String titolo;
-    private LocalDate annoPubblicazione;
+    private int annoPubblicazione;
     private int numeroPagine;
 
     @ManyToOne
@@ -23,7 +24,7 @@ public abstract class Prodotto {
     public Prodotto() {
     }
 
-    public Prodotto(String titolo, LocalDate annoPubblicazione, int numeroPagine) {
+    public Prodotto(String titolo, int annoPubblicazione, int numeroPagine) {
         this.codiceISBN = UUID.randomUUID().toString();
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
@@ -31,6 +32,10 @@ public abstract class Prodotto {
     }
 
     //GETTER E SETTER
+
+    public String getCodiceISBN() {
+        return codiceISBN;
+    }
 
     public String getTitolo() {
         return titolo;
@@ -40,11 +45,11 @@ public abstract class Prodotto {
         this.titolo = titolo;
     }
 
-    public LocalDate getAnnoPubblicazione() {
+    public int getAnnoPubblicazione() {
         return annoPubblicazione;
     }
 
-    public void setAnnoPubblicazione(LocalDate annoPubblicazione) {
+    public void setAnnoPubblicazione(int annoPubblicazione) {
         this.annoPubblicazione = annoPubblicazione;
     }
 
@@ -55,4 +60,6 @@ public abstract class Prodotto {
     public void setNumeroPagine(int numeroPagine) {
         this.numeroPagine = numeroPagine;
     }
+
+
 }

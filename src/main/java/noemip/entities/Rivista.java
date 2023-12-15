@@ -15,7 +15,7 @@ public class Rivista extends Prodotto{
     public Rivista() {
     }
 
-    public Rivista(String titolo, LocalDate annoPubblicazione, int numeroPagine, Periodicita periodicita) {
+    public Rivista(String titolo, int annoPubblicazione, int numeroPagine, Periodicita periodicita) {
         super(titolo, annoPubblicazione, numeroPagine);
         this.periodicita = periodicita;
     }
