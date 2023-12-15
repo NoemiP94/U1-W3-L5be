@@ -6,7 +6,9 @@ import java.util.UUID;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-//@NamedQuery(name= "findByYear", query="SELECT p FROM Prodotto p ")
+@NamedQuery(name= "findByYear", query="SELECT p FROM Prodotto p WHERE p.annoPubblicazione = :annoPubblicazione ")
+@NamedQuery(name= "findByAuthor", query= "SELECT p FROM Prodotto p WHERE p.autore = :autore")
+@NamedQuery(name= "findByTitle", query= "SELECT p FROM Prodotto p WHERE LOWER(p.titolo) LIKE LOWER(CONCAT(:partialtitle, '%'))")
 public abstract class Prodotto {
 
     @Id

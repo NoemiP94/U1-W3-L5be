@@ -27,8 +27,15 @@ public class Application {
         //prodDAO.save(r1);
         //prodDAO.save(r2);
 
+        System.out.println("----------------------findByYear------------------------");
+        prodDAO.findByYear(2009).forEach(System.out::println);
+        System.out.println("----------------------findByAuthor----------------------------");
+        prodDAO.findByAuthor("Lewis Carroll").forEach(System.out::println);
+        System.out.println("----------------------findByTitleOrPartialTitle----------------------------");
+        prodDAO.findByTitleOrPartialTitle("The").forEach(System.out::println);
 
-
+        em.close();
+        emf.close();
 
     }
 }

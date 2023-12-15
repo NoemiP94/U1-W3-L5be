@@ -6,6 +6,8 @@ import noemip.entities.Rivista;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class ProdottoDao {
     private final EntityManager em;
@@ -51,7 +53,24 @@ public class ProdottoDao {
     }
 
     //findByYear
+    public List<Prodotto> findByYear(int annoPubblicazione){
+        TypedQuery<Prodotto> getProductsByYear = em.createNamedQuery("findByYear", Prodotto.class);
+        getProductsByYear.setParameter("annoPubblicazione", annoPubblicazione);
+        return getProductsByYear.getResultList();
+    }
 
+    //findByAuthor
+    public List<Prodotto> findByAuthor(String autore){
+        TypedQuery<Prodotto> getProductsByAuthor = em.createNamedQuery("findByAuthor", Prodotto.class);
+        getProductsByAuthor.setParameter("autore", autore);
+        return getProductsByAuthor.getResultList();
+    }
 
+    //findByTitleOrPartialTitle
+    public List<Prodotto> findByTitleOrPartialTitle(String partialtitle){
+        TypedQuery<Prodotto> getProductsByTitle = em.createNamedQuery("findByTitle", Prodotto.class);
+        getProductsByTitle.setParameter("partialtitle", partialtitle);
+        return getProductsByTitle.getResultList();
+    }
 
 }
