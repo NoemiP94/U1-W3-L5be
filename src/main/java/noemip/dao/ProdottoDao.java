@@ -75,6 +75,7 @@ public class ProdottoDao {
         return getProductsByTitle.getResultList();
     }
 
+    //ricerca prodotti in prestito per numero tessera
     public List<Prodotto> getProductsByCard(long numeroTessera){
         List<Prodotto> prodottiInPrestito = new ArrayList<>();
 
