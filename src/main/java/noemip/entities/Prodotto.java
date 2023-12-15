@@ -17,8 +17,7 @@ public abstract class Prodotto {
     private int annoPubblicazione;
     private int numeroPagine;
 
-    @ManyToOne
-    @JoinColumn(name = "prestito_id")
+    @OneToOne(mappedBy = "prodotto")
     private Prestito prestito;
 
 

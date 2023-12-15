@@ -12,8 +12,9 @@ public class Prestito {
     @ManyToOne
     @JoinColumn(name= "utente_tessera")
     private Utente utente;
-    @OneToMany(mappedBy= "prestito")
-    private List<Prodotto> listaProdotti;
+    @OneToOne
+    @JoinColumn(name= "prodotto_id")
+    private Prodotto prodotto;
 
     private LocalDate inizioPrestito;
     private LocalDate restituzionePrevista;
@@ -24,9 +25,9 @@ public class Prestito {
     public Prestito() {
     }
 
-    public Prestito(Utente utente, List<Prodotto> listaProdotti, LocalDate inizioPrestito, LocalDate restituzioneEffettiva) {
+    public Prestito(Utente utente, Prodotto prodotto, LocalDate inizioPrestito, LocalDate restituzioneEffettiva) {
         this.utente = utente;
-        this.listaProdotti = listaProdotti;
+        this.prodotto = prodotto;
         this.inizioPrestito = inizioPrestito;
         this.restituzionePrevista = inizioPrestito.plusDays(30);
         this.restituzioneEffettiva = restituzioneEffettiva;
@@ -42,12 +43,12 @@ public class Prestito {
         this.utente = utente;
     }
 
-    public List<Prodotto> getListaProdotti() {
-        return listaProdotti;
+    public Prodotto getListaProdotti() {
+        return prodotto;
     }
 
-    public void setListaProdotti(List<Prodotto> listaProdotti) {
-        this.listaProdotti = listaProdotti;
+    public void setListaProdotti(Prodotto prodotto) {
+        this.prodotto = prodotto;
     }
 
     public LocalDate getInizioPrestito() {
@@ -74,17 +75,21 @@ public class Prestito {
         this.restituzioneEffettiva = restituzioneEffettiva;
     }
 
+    public long getId() {
+        return id;
+    }
+
     //METODI
 
     @Override
     public String toString() {
         return "Prestito{" +
-                "id=" + id +
-                ", utente=" + utente +
-                ", listaProdotti=" + listaProdotti +
-                ", inizioPrestito=" + inizioPrestito +
-                ", restituzionePrevista=" + restituzionePrevista +
-                ", restituzioneEffettiva=" + restituzioneEffettiva +
+                "Id Prestito: " + id +
+                ", Utente: " + utente +
+                ", Prodotto: " + prodotto +
+                ", Data inizio prestito=" + inizioPrestito +
+                ", Data restituzione prevista: " + restituzionePrevista +
+                ", Data restituzione effettiva: " + restituzioneEffettiva +
                 '}';
     }
 }

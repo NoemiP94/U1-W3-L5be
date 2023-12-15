@@ -69,10 +69,10 @@ public class Utente {
     @Override
     public String toString() {
         return "Utente{" +
-                ", nome='" + nome + '\'' +
-                ", cognome='" + cognome + '\'' +
-                ", dataDiNascita=" + dataDiNascita +
-                ", numeroTessera=" + numeroTessera +
+                "Nome: " + nome +
+                ", Cognome: " + cognome +
+                ", Data di nascita: " + dataDiNascita +
+                ", Numero tessera: " + numeroTessera +
                 '}';
     }
 }

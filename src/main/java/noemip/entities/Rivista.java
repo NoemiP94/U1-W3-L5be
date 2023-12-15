@@ -35,7 +35,11 @@ public class Rivista extends Prodotto{
     @Override
     public String toString() {
         return "Rivista{" +
-                "periodicita=" + periodicita +
+                "CodiceISBN: " + getCodiceISBN() +
+                ", Titolo: " + getTitolo() +
+                ", Anno Pubblicazione: " + getAnnoPubblicazione() +
+                ", Numero pagine: " + getNumeroPagine() +
+                ", Periodicita: " + periodicita +
                 '}';
     }
 }
