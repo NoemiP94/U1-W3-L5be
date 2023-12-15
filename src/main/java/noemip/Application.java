@@ -77,7 +77,7 @@ public class Application {
             System.out.println("- ID prestito: " + prestito.getId() + ", Utente: " + prestito.getUtente().getNome() + " " + prestito.getUtente().getCognome());
         }
 
-        System.out.println("------Prodotti in presito per numero tessera: ");
+        System.out.println("------Prodotti in prestito per la tessera n°3: ");
         for(Prodotto prodotto : prodottiInPrestito){
             System.out.println(prodotto);
         }
